@@ -1,0 +1,55 @@
+{% extends 'administration/base/base.html' %}
+{% load static %}
+{% block content %}
+  <div class="card">
+    <div class="card-header">Exammaster question allocation Register Form</div>
+    <div class="card-body">
+      <form action="" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="exmid" id="exmid" />
+        {{ form.as_p}}
+
+        <input type="submit" class="btn btn-success" value="Submit" id="btnsave">
+</form>
+    </div>
+  </div>
+
+  <div class="card">
+      <div class="card-header">
+          <i class="fa fa-align-justify"></i>allocation List</div>
+      <div class="card-body">
+        <div  style="overflow-x:auto;">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Exam_master</th>
+              <th scope="col">Question</th>
+              <th scope="col">Action</th>
+          </tr>
+          </thead>
+          <tbody id="tbody">
+            {% for st in st %}
+            <tr>
+                <td>{{st.id}}</td>
+                <td>{{st.exam_master}}</td>
+                <td>{{st.question}}</td>
+                <td>
+                  <a href="{% url 'editq' st.id %}" input type="button"  value="Edit" class="btn btn-warning btn-sm btn-edit" data-eid="{{st.id}}">Edit</a><br><br>
+                    <input type="button" value="Delete" onliClick="deleteex()" class="btn btn-danger btn-sm btn-del" data-eid="{{st.id}}">
+
+                </td>
+
+            </tr>
+
+
+            {% endfor %}
+          </tbody>
+
+      </table>
+      </div>
+  </div>
+  <script src="{% static 'core/js/jquery.js' %}"></script>
+  <script src="{% static 'core/js/popper.js' %}"></script>
+  {% include 'administration/eqallo/ajax.html' %}
+{%endblock%}]

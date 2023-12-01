@@ -1,0 +1,133 @@
+{% load static %}
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'home' %}"><i class="icon-speedometer"></i> Dashboard</a>
+            </li>
+            <!-- Administration Section Start -->
+            <li class="nav-item nav-dropdown">
+             <a class="nav-link nav-dropdown-toggle" href="#">
+                 <i class="nav-icon icon-puzzle"></i>Administration</a>
+             <ul class="nav-dropdown-items">
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home1' %}">
+                        <i class="fa fa-plus-circle"></i>Add Designation</a>
+                 </li>
+             </ul>
+           </li>
+           <!-- Administration Section END -->
+
+           <!-- Academic Section START -->
+           <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Academic</a>
+            <ul class="nav-dropdown-items">
+              
+            </ul>
+          </li>
+          <!-- Academic Section END -->
+
+           <!-- Teacher Section START -->
+           <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Teacher</a>
+            <ul class="nav-dropdown-items">
+                
+            </ul>
+          </li>
+          <!-- Teacher Section END -->
+
+            <!-- Class Section START -->
+            <li class="nav-item nav-dropdown">
+             <a class="nav-link nav-dropdown-toggle" href="#">
+                 <i class="nav-icon icon-puzzle"></i>Class</a>
+             <ul class="nav-dropdown-items">
+               
+             </ul>
+           </li>
+           <!-- Class Section END -->
+
+            <!-- Student Section START -->
+            <li class="nav-item nav-dropdown">
+             <a class="nav-link nav-dropdown-toggle" href="#">
+                 <i class="nav-icon icon-puzzle"></i>Student</a>
+             <ul class="nav-dropdown-items">
+                 
+             </ul>
+           </li>
+           <!-- Student Section END -->
+
+           <!-- Enroll Student Section START -->
+        <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Enroll Student</a>
+            <ul class="nav-dropdown-items">
+                
+            </ul>
+          </li>
+          <!-- Enroll Student Section END -->
+
+           <!-- Employee Section START -->
+           <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Employee</a>
+            <ul class="nav-dropdown-items">
+                
+            </ul>
+          </li>
+          <!-- Employee Section END -->
+
+          <!-- Result Section START -->
+          <li class="nav-item nav-dropdown">
+           <a class="nav-link nav-dropdown-toggle" href="#">
+               <i class="nav-icon icon-puzzle"></i>Result</a>
+           <ul class="nav-dropdown-items">
+               
+           </ul>
+         </li>
+         <!-- Result Section END -->
+
+         <!-- Attendence Report Section START -->
+         <li class="nav-item nav-dropdown">
+          <a class="nav-link nav-dropdown-toggle" href="#">
+              <i class="nav-icon icon-puzzle"></i>Attendence Report</a>
+          <ul class="nav-dropdown-items">
+              
+          </ul>
+        </li>
+        <!-- Attendence Report Section END -->
+
+       <!-- Holiday Section START -->
+       <li class="nav-item nav-dropdown">
+        <a class="nav-link nav-dropdown-toggle" href="#">
+            <i class="nav-icon icon-puzzle"></i>Holiday</a>
+        <ul class="nav-dropdown-items">
+            
+        </ul>
+      </li>
+      <!-- Holiday Section END -->
+
+        <!-- Event Section START -->
+        <li class="nav-item nav-dropdown">
+         <a class="nav-link nav-dropdown-toggle" href="#">
+             <i class="nav-icon icon-puzzle"></i>Event</a>
+         <ul class="nav-dropdown-items">
+             
+         </ul>
+       </li>
+       <!-- Event Section END -->
+
+        <!-- User-Manual Section START -->
+        <li class="nav-item nav-dropdown">
+         <a class="nav-link" href="#">
+             <i class="nav-icon icon-puzzle"></i>User-Manual</a>
+       </li>
+       <!-- User-Manual Section END -->
+        </ul>
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+
+    {% block sidebar %}
+    {% endblock %}
+</div>

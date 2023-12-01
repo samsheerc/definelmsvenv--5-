@@ -1,0 +1,154 @@
+{% load static %}
+<div class="sidebar">
+    <nav class="sidebar-nav">
+        <ul class="nav">
+            
+            <li class="nav-item">
+                                 <a class="nav-link" href="{% url 'home' %}"><i class="icon-speedometer"></i> Dashboard</a>
+                            </li>
+          
+
+           <!-- Academic Section START -->
+           <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Banner</a>
+            <ul class="nav-dropdown-items">
+               <li class="nav-item">
+                   <a class="nav-link" href="{% url 'addbanner' %}">
+                       <i class="fa fa-plus-circle"></i>Add Banner</a>
+                </li>
+            </ul>
+            </li>
+
+           <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Academic</a>
+            <ul class="nav-dropdown-items">
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'sub' %}">
+                        <i class="fa fa-plus-circle"></i>Add subject</a>
+                 </li> 
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'topicc' %}">
+                        <i class="fa fa-plus-circle"></i>Add Topic</a>
+                 </li> 
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'topicsub' %}">
+                        <i class="fa fa-plus-circle"></i>Add SubTopic</a>
+                 </li> 
+            </ul>
+          </li>
+          <!-- Academic Section END -->
+
+      
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Course</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'cr' %}">
+                        <i class="fa fa-plus-circle"></i>Add Course</a>
+                 </li> 
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'vdo' %}">
+                        <i class="fa fa-plus-circle"></i>Add video</a>
+                 </li> 
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'addnote' %}">
+                        <i class="fa fa-plus-circle"></i>Add notes</a>
+                 </li> 
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'addsyllabus' %}">
+                        <i class="fa fa-plus-circle"></i>Add Syllabus</a>
+                 </li> 
+                </ul>
+            </li>
+
+
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Exam</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'add-examex' %}">
+                        <i class="fa fa-plus-circle"></i>Add exam</a>
+                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'homeem' %}">
+                        <i class="fa fa-plus-circle"></i> ExamMaster</a>
+                 </li>
+            </ul>
+          </li>
+
+           <!-- Questionbank Section START -->
+           <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Questionbank</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'qbadd' %}">
+                        <i class="fa fa-plus-circle"></i>Add question</a>
+                 </li>  
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'op' %}">
+                        <i class="fa fa-plus-circle"></i> Add options</a>
+                 </li>
+            </ul>
+          </li>
+          <!-- Questionbank Section END -->
+
+
+
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Allocations</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'addcsallo' %}">
+                        <i class="fa fa-plus-circle"></i>Course subject</a>
+                 </li>  
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'addtcallo' %}">
+                        <i class="fa fa-plus-circle"></i>Topic Course Subject</a>
+                 </li>
+                 <li class="nav-item">
+                    <a class="nav-link" href="{% url 'addeqallo' %}">
+                        <i class="fa fa-plus-circle"></i>Exammaster Question</a>
+                 </li>  
+            </ul>
+          </li>
+
+
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Enquiries</a>
+            <ul class="nav-dropdown-items">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'enquiry' %}">
+                        <i class="fa fa-plus-circle"></i>Enquiry</a>
+                 </li>   
+            </ul>
+          </li>
+
+          <li class="nav-item nav-dropdown">
+            <a class="nav-link nav-dropdown-toggle" href="#">
+                <i class="nav-icon icon-puzzle"></i>Testimonial</a>
+            <ul class="nav-dropdown-items">
+               <li class="nav-item">
+                   <a class="nav-link" href="{% url 'addtestimonial' %}">
+                       <i class="fa fa-plus-circle"></i>Add Testimonial</a>
+                </li>
+                
+            </ul>
+            </li>
+
+        
+
+        
+        </ul>
+    </nav>
+    <button class="sidebar-minimizer brand-minimizer" type="button"></button>
+
+    {% block sidebar %}
+    {% endblock %}
+</div>

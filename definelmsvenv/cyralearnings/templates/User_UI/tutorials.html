@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <title>cyralearnings</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'userui/img/favicon.ico' %}" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'userui/lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'userui/lib/animate/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'userui/lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'userui/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="{% static 'userui/css/style.css' %}" rel="stylesheet">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- <link href="{% static 'userui/css/user.css' %}" rel="stylesheet"> -->
+</head>
+
+<body>
+
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0">
+        <a href="{% url 'index' %}" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary">Cyra Learnings</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="{% url 'index' %}" class="nav-item nav-link">Home</a>
+                <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                <!-- <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu fade-down m-0">
+                        <a href="team.html" class="dropdown-item">Our Team</a>
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        <a href="#" class="dropdown-item">404 Page</a>
+                    </div>
+                </div> -->
+                <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="" class="btn btn-primary py-4 px-lg-5 d-none d-lg-block">Join Now<i class="fa fa-arrow-right ms-3"></i></a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- 404 Start -->
+   
+        
+
+    <div class="container1">
+        <div style="padding-left: 15px;">
+        <section class="main-video">
+            <iframe width="1060" name="iframe_a" height="550" src="{% static 'userui/gif/animation.gif' %}" style="border-radius: 12px;" loop controls class="main-video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;  encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </section>    
+    </div>
+        <div class="video-list-container">
+            {% for vd in vde %}
+            <div class="video" data-id="{{vd.id}}">
+            <div class="list">
+            <input  type="hidden" value="{{vd.videolink}}" id="{{vd.id}}">
+               
+                   
+                    <img src="{{vd.image.url}}" class="list-video">
+                    <h3 class="list-title">{{vd.class_name}}</h3>
+                    
+                </div></div>
+                <p></p>
+            {% endfor %}
+        </div>
+    </div>
+    <div data-tabs class="tabs">    
+        <div class="tab">
+           <input type="radio" name="tabgroup" id="tab-1" checked>
+           <label for="tab-1">Comments</label>
+           <div class="tab__content">
+              <h4>Comments</h4>
+              <div class="container mt-5 com">
+                <div class="d-flex justify-content-center row">
+                    <div class="col-md-8">
+                        <div class="d-flex flex-column comment-section">
+                            
+                            <div style="overflow-y:auto; height: auto; width: 900px;max-height: 400px;" class="example">
+                                <div id="comm" >
+
+                    </div></div>
+                            <div class=" p-2">
+                                {% csrf_token %}
+                                <form>
+                                <table><tr>
+                                    <td><textarea name="w3review" rows="4" cols="50" id="comment" style="resize: none;" required></textarea></td>
+                                    <td style="vertical-align: bottom;padding-bottom: 8.9px;"><button type="button" id="btncomment"  class="btn-btn">Comment</button></td>
+                                    </tr>
+                                </table>
+                            </form>
+                            <input type="hidden" name="video" id="video">
+                            <input type="hidden" name="" id="user" value="{{userid}}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           </div> 
+        </div>
+        <div class="tab">
+           <input type="radio" name="tabgroup" id="tab-2">
+           <label for="tab-2">SYLLABUS</label>
+           <div class="tab__content">
+              <h4>Syllabus</h4>
+            {% for syl in syl %}
+			<p style="overflow-y:auto; height: auto; width: 900px;max-height:400px;" class="example">{{syl.syllabus}}</p>
+            {% endfor %}
+           </div> 
+        </div>
+        <div class="tab">
+           <input type="radio" name="tabgroup" id="tab-3">
+           <label for="tab-3">NOTES</label>
+           <div class="tab__content">
+            <h4>Notes</h4>
+            <div id="g"></div>
+           </div> 
+        </div>
+        <div class="tab">
+           <input type="radio" name="tabgroup" id="tab-4">
+           <label for="tab-4">MCQ</label>
+           <div class="tab__content">
+              <h4>Mcq</h4>
+              <ul>
+                <li>a</li>
+                <li>b</li>
+                <li>c</li>
+                <li>d</li>
+            </ul>
+              
+           </div> 
+        </div>
+     </div>
+    </div>
+    
+    
+    <!-- Footer Start -->
+    {% include 'User_UI/footer.html' %}
+    <!-- Footer End -->
+    
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.8.335/pdf.min.js"></script>
+    <script>
+        
+        const main_video = document.querySelector('.main-video iframe');
+        //const main_video=document.getElementById("iframe");
+        const main_video_title = document.querySelector('.main-video-container .title');
+        const video_playlist = document.querySelector('.video-playlist .videos');
+        const selectElement = document.querySelector('input[name="video"]');
+        let videos = document.querySelectorAll('.video');
+        let length =  videos.length;
+        videos.forEach(selected_video => {
+            selected_video.onclick = () => {
+                let a=document.getElementById(selected_video.dataset.id).value;
+                main_video.src = a;
+                selectElement.value=selected_video.dataset.id;
+            }
+        });
+$('#btncomment').click(function(){
+        //console.log("Button Save Clicked");
+        output ="";
+        let n = $('#comment').val();
+        let e = $('#video').val();
+        let c = $('#user').val();
+    
+        if(n == ""){
+            console.log("Please Enter Name");
+        }else if(e == ""){
+            console.log("Please Enter Email");
+        }else if(c == ""){
+            console.log("Please Enter Course");
+        }else{
+            console.log(n);
+            console.log(e);
+            console.log(c);
+    
+            mydata = { comment:n, video:e, user:c};
+    
+            $.ajax({
+                url: "{% url 'savecom' %}",
+                method: "POST",
+                data: mydata,
+    
+                success:function(data){
+                    $('#comm').empty();
+                 // console.log(data.status)
+                 x = data.student_data;
+    
+                 if(data.status == 'Data Saved'){
+                     console.log('Data Submitted');
+                    console.log(x)
+                     for(i=0; i<x.length; i++){
+                         output += 
+                            "<div class='bg-white p-2'><div class='d-flex flex-row user-info'><img class='rounded-circle' src='{% static 'userui/img/Profile.png' %}' width='30' height='30'><div class='d-flex flex-column justify-content-start ml-2'><span class='d-block font-weight-bold name'>" + x[i].user__username +
+                            "</span><span class='date text-black-50'>Shared publicly - " + x[i].datetime +
+                            "</span></div></div><div class='mt-2'><p class='comment-text'>" + x[i].comment +
+                            "</p></div></div><div class='bg-white'><div class='d-flex flex-row fs-12'></div></div> "
+                     }
+                     $('#comm').html(output);
+                     $('#exmid').val("");
+                     $('form')[0].reset();
+                 }
+    
+                 if(data.status == 'Not Saved'){
+                     console.log('Unable Submit Data');
+                     $('#exmid').val("");
+                 }
+    
+    
+    
+                }
+            });
+ }
+
+})
+
+$(".video").on('click', function(){
+    output ="";
+        
+        let l = $('#video').val();
+        console.log(l);
+       
+    
+        if(l == ""){
+            console.log("Please Enter Name");
+        }else{
+           
+            console.log(l);
+            
+    
+            myda = { video:l};
+    
+$.ajax({
+    url: 'http://localhost:8000/lms/commentget/',
+    method: "POST",
+    data: myda,
+    success: function(data) {
+        $('#comm').empty();
+        // Handle successful response
+        console.log(data); // Output response data to console
+        // Iterate through comments and display them
+        // $.each(data.videocomment, function(index, comment) {
+        //     $('#comments').append('<div class="comment"><strong>' + comment.comment + '</strong>: ' + comment.comment + '</div>');
+        // });
+        
+        const commentElements = data.map(comment => {
+  return  `
+            <div class="bg-white p-2">
+              <div class="d-flex flex-row user-info">
+                <img class="rounded-circle" src="{% static 'userui/img/Profile.png' %}" width="30" height="30">
+                <div class="d-flex flex-column justify-content-start ml-2">
+                  <span class="d-block font-weight-bold name">${comment.user}</span>
+                  <span class="date text-black-50">Shared publicly - ${comment.datetime}</span>
+                </div>
+              </div>
+              <div class="mt-2">
+                <p class="comment-text">${comment.comment}</p>
+              </div>
+            </div>
+          `;
+        });
+        // Append comments to the DOM
+        $('#comm').append(commentElements.join(''));
+      },
+    error: function(xhr, textStatus, errorThrown) {
+        // Handle error response
+        console.log('Error: ' + errorThrown);
+    }
+});}
+});
+
+
+
+$(".video").on('click', function(){
+    output ="";
+        
+        let k = $('#video').val();
+        console.log(k);
+       
+    
+        if(k == ""){
+            console.log("Please Enter video");
+        }else{
+           
+            console.log(k);
+            
+    
+            myd = { video:k};
+    
+$.ajax({
+    url: 'http://localhost:8000/lms/notes/',
+    method: "POST",
+    data: myd,
+    success: function(data) {
+        $('#g').empty();
+        // Handle successful response
+        console.log(data); // Output response data to console
+        // Iterate through comments and display them
+        // $.each(data.videocomment, function(index, comment) {
+        //     $('#comments').append('<div class="comment"><strong>' + comment.comment + '</strong>: ' + comment.comment + '</div>');
+        // });
+        
+        const commentElements = data.map(comment => {
+  return  `
+    
+                  <a href="${comment.pdf_file}" target="_blank">${comment.notename}</a>
+          `;
+        });
+        // Append comments to the DOM
+        $('#g').append(commentElements.join(''));
+      },
+    error: function(xhr, textStatus, errorThrown) {
+        // Handle error response
+        console.log('Error: ' + errorThrown);
+    }
+});}
+});
+
+ 
+    </script>
+
+
+
+    
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'userui/lib/wow/wow.min.js' %}"></script>
+    <script src="{% static 'userui/lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'userui/lib/waypoints/waypoints.min.js' %}"></script>
+    <script src="{% static 'userui/lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+    <!-- Template Javascript -->
+    <script src="{% static 'userui/js/script.js' %}"></script>
+    <script src="{% static 'userui/js/main.js' %}"></script>
+   
+   
+</body>
+
+</html>

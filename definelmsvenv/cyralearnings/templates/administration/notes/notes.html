@@ -1,0 +1,63 @@
+{% extends 'administration/base/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="card">
+  <div class="card-header">course Register Form</div>
+  <div class="card-body">
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+     {{ form.as_p }}
+    
+    <button type="submit" class="btn btn-success">Upload</button>
+  </form>
+</div>
+</div>
+<div class="card">
+  <div class="card-header">
+      <i class="fa fa-align-justify"></i>course List</div>
+  <div class="card-body">
+    <div  style="overflow-x:auto;">
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Note Name</th>
+        <th scope="col">Pdf_File</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Video</th>
+        <th scope="col">isActive</th>
+        <th scope="col">User</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+      {% for st in st %}
+      <tr>
+          <td>{{st.id}}</td>
+          <td>{{st.notename}}</td>
+          <td>{{st.pdf_file}}</td>
+          <td>{{st.subject}}</td>
+          <td>{{st.video}}</td>
+          <td>{{st.isactive}}</td>
+          <td>{{st.user}}</td>
+          <td>
+            <a href="{% url 'editnotes' st.id %}" input type="button"  value="Edit" class="btn btn-warning btn-sm btn-edit" data-eid="{{st.id}}">Edit</a><br><br>
+              <input type="button" value="Delete" onliClick="deletecr()" class="btn btn-danger btn-sm btn-del" data-eid="{{st.id}}">
+
+          </td>
+
+      </tr>
+
+
+      {% endfor %}
+    </tbody>
+
+</table>
+            </div>
+            </div>
+<script src="{% static 'core/js/jquery.js' %}"></script>
+<script src="{% static 'core/js/popper.js' %}"></script>
+  {% include 'administration/notes/ajax.html' %}
+  {%endblock%}

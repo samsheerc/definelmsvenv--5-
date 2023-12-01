@@ -1,0 +1,51 @@
+{% extends 'administration/base/base.html' %}
+{% load static %}
+{% block content %}
+<div class="card">
+  <div class="card-header">Syllabus Register Form</div>
+  <div class="card-body">
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="hidden" name="exmid" id="exmid">
+     {{ form.as_p }}
+     <!-- <input type="button" class="btn btn-success" value="Submit" id="btnsave"> -->
+    <button type="submit" class="btn btn-success"  id="btnsave">Upload</button>
+  </form>
+</div>
+</div>
+<div class="card">
+  <div class="card-header">
+      <i class="fa fa-align-justify"></i>Syllabus List</div>
+  <div class="card-body" style="overflow-x:auto;">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Syllabus</th>
+        <th scope="col">Course</th>
+        <th scope="col">Is Active</th>
+        <th scope="col">user</th>
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+      {% for st in st %}
+      <tr>
+          <td>{{st.id}}</td>
+          <td>{{st.syllabus}}</td>
+          <td>{{st.course}}</td>
+          <td>{{st.isactive}}</td>
+          <td>{{st.user}}</td>
+          <td>
+
+            <a href="{% url 'editsyl' st.id %}" input type="button"  value="Edit" class="btn btn-warning btn-sm btn-edit" data-eid="{{st.id}}">Edit</a><br><br>
+              <input type="button" value="Delete" onliClick="deletebr()" class="btn btn-danger btn-sm btn-del" data-bid="{{st.id}}">
+          </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+</table>
+<script src="{% static 'core/js/jquery.js' %}"></script>
+  <script src="{% static 'core/js/popper.js' %}"></script>
+{% include 'administration/syllabus/ajax.html' %}   
+{%endblock%}

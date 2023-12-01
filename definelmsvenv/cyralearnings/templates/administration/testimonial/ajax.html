@@ -1,0 +1,37 @@
+<script>
+    
+    // Delete
+    $('#tbody').on("click", ".btn-del", function deletetst(){
+        var action = confirm("Are you sure you want to delete?");
+        if (action != false) {
+        console.log("Delete Button Cliked");
+        let id = $(this).attr("data-emid");
+    
+        mydata = {emid:id};
+        mythis = this;
+    
+        $.ajax({
+            url: "{% url 'deletetst' %}",
+            method:"POST",
+            data:mydata,
+    
+            success: function(data){
+                console.log(data);
+    
+                if(data.status == 1){
+                    console.log("Data Deleted");
+                    $(mythis).closest("tr").fadeOut();
+                }
+    
+                if(data.status == 0){
+                    console.log("Unable To Deleted Data");
+                    $(mythis).closest("tr").fadeOut();
+                }
+    
+            },
+        })}
+    })
+    
+    
+    
+    </script>

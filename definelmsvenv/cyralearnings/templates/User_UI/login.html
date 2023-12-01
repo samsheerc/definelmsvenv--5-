@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <title>cyralearnings</title>
+<head>                                                          
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+
+
+    <link rel="stylesheet" href="{% static 'userui/css/styling.css' %}">
+
+    <script src="https://kit.fontawesome.com/3a3e121ecf.js" crossorigin="anonymous"></script>
+
+</head>
+<body class="bg" background="{% static 'userui/img/bggggg.png' %}">
+    <div class="topleft">
+        <img src="{% static 'userui/img/cyra.png' %}">
+      </div>
+    
+
+<div class="signup-box">
+
+<img src="https://img.icons8.com/windows/144/null/user-male-circle.png">
+<br>
+
+<!-- <form action="" name="suForm" id="supform">
+    <input type="text" placeholder="Username" id="name" onclick="resetBtn()" maxlength="30" onkeypress="return event.keyCode != 13;">
+    <input type="password" placeholder="Password" id="pass" onclick="resetBtn()" minlength="8" onkeypress="return event.keyCode != 13;">
+    <input type="checkbox" name="check1" id="check" onclick="resetBtn()" onkeypress="return event.keyCode != 13;">
+    <label for="check" class="label">I agree to the 'Terms and policies'.</label>
+    <input type="submit" id="submit-btn" value="Sign Up" onmouseover="mouseOver()">
+</form> -->
+<form action="" name="suForm" id="supform" method="post" autocomplete="off" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br>
+
+    <input type="submit" id="submit-btn" value="Login" onmouseover="mouseOver()">
+  </form>
+</div>
+
+
+
+
+
+
+<script>
+
+    var a = 0;
+
+    function mouseOver(){
+        
+        const name = document.forms['suForm']['name'].value;
+        const pass = document.forms['suForm']['pass'].value;
+        
+
+       
+
+
+
+        if((name == ""  || pass == "" ) && a==0){
+        buttonMoveLeft();
+        a = 1;
+        return false;
+        } 
+
+        if((name == ""  || pass == "")&& a==1){
+        buttonMoveRight();
+        a = 2;
+        return false;
+        } 
+
+        if((name == "" || pass == "") && a==2){
+        buttonMoveLeft();
+        a = 1;
+        return false;
+        } 
+
+        else{
+
+            // document.getElementById('submit-btn').click();  
+            document.getElementById('submit-btn').style.cursor = 'pointer';
+            return false;
+        };
+
+    };
+
+
+    
+
+    function buttonMoveLeft(){
+
+        const button = document.getElementById('submit-btn');
+        button.style.transform = 'translateX(-210%)';
+
+    };
+
+
+    function buttonMoveRight(){
+
+        const button = document.getElementById('submit-btn');
+        button.style.transform = 'translateX(0%)';
+
+    };
+
+
+    function resetBtn(){
+        const button = document.getElementById('submit-btn');
+        button.style.transform = 'translateX(0%)';
+    };
+
+
+</script>
+
+
+
+   
+
+
+</body>
+</html>
